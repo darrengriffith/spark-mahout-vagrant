@@ -7,8 +7,8 @@ echo ======================
 yum -y update
 
 # For Python
-yum groupinstall -y development
-yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel
+yum -y groupinstall development
+yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel
 
 echo =======================
 echo == INSTALLING Java 8 ==
@@ -47,6 +47,7 @@ echo =======================
 cd /vagrant
 tar -xvf Python-3.6.3.tgz
 cd Python-3.6.3
+./configure
 make
 make altinstall
 
@@ -59,6 +60,7 @@ echo "## Adding Python to the path for all USERS ##" >> /etc/profile
 echo "export PATH=/usr/local/bin:\$PATH" >> /etc/profile
 
 rm -r /vagrant/Python-3.6.3
+
 
 echo ======================
 echo == INSTALLING Spark ==
