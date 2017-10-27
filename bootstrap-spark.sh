@@ -10,6 +10,11 @@ yum -y update
 yum -y groupinstall development
 yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel
 
+# For Mahout
+yum -y install opencl-headers
+yum -y install redhat-lsb-core
+
+
 echo =======================
 echo == INSTALLING Java 8 ==
 echo =======================
@@ -86,7 +91,14 @@ tar -xvf apache-mahout-distribution-0.13.0.tar.gz
 mv apache-mahout-distribution-0.13.0 /opt/mahout
 
 echo "## Adding Mahout to the classpath for all USERS ##" >> /etc/profile
-echo "export CLASSPATH=/usr/local/mahout/mahout-core-0.9.jar:\$CLASSPATH" >> /etc/profile
-echo "export CLASSPATH=/usr/local/mahout/mahout-core-0.9-job.jar:\$CLASSPATH" >> /etc/profile
-echo "export CLASSPATH=/usr/local/mahout/mahout-integration-0.9.jar:\$CLASSPATH" >> /etc/profile
-echo "export CLASSPATH=/usr/local/mahout/mahout-math-0.9.jar:\$CLASSPATH" >> /etc/profile
+echo "export CLASSPATH=/opt/mahout/mahout-core-0.13.0.jar:\$CLASSPATH" >> /etc/profile
+echo "export CLASSPATH=/opt/mahout/mahout-core-0.13.0-job.jar:\$CLASSPATH" >> /etc/profile
+echo "export CLASSPATH=/opt/mahout/mahout-integration-0.13.0.jar:\$CLASSPATH" >> /etc/profile
+echo "export CLASSPATH=/opt/mahout/mahout-math-0.13.0.jar:\$CLASSPATH" >> /etc/profile
+
+# This is interactive and needs to be run by a user
+#
+#cd /vagrant
+#tar -xvf opencl_runtime_16.1.1_x64_rh_6.4.0.25.tgz
+#cd opencl_runtime_16.1.1_x64_rh_6.4.0.25
+#./install.sh

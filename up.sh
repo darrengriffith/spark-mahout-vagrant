@@ -22,6 +22,10 @@ if [ ! -f spark-2.2.0-bin-hadoop2.7.tgz ]; then
   curl -O https://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz
 fi
 
+if [ ! -f opencl_runtime_16.1.1_x64_rh_6.4.0.25.tgz ]; then
+  curl -O http://registrationcenter-download.intel.com/akdlm/irc_nas/9019/opencl_runtime_16.1.1_x64_rh_6.4.0.25.tgz
+fi
+
 #
 # Start VM
 #
