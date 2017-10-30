@@ -96,6 +96,9 @@ echo "export CLASSPATH=/opt/mahout/mahout-core-0.13.0-job.jar:\$CLASSPATH" >> /e
 echo "export CLASSPATH=/opt/mahout/mahout-integration-0.13.0.jar:\$CLASSPATH" >> /etc/profile
 echo "export CLASSPATH=/opt/mahout/mahout-math-0.13.0.jar:\$CLASSPATH" >> /etc/profile
 
+echo "export MAHOUT_HOME=/opt/mahout" >> /etc/profile
+echo "export MAHOUT_LOCAL=true" >> /etc/profile
+
 # This is interactive and needs to be run by a user
 #
 #cd /vagrant
